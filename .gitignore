@@ -27,7 +27,7 @@ dist-ssr
 .env
 .env.*
 !.env.example
-!.env.railway.example
+!.env.render.example
 
 # Project dependency folders
 React/node_modules
