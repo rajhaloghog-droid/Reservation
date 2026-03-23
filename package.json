@@ -1,0 +1,15 @@
+{
+  "name": "reservation",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm --prefix API install && npm --prefix React install",
+    "dev": "npm --prefix React run dev",
+    "build": "npm --prefix React run build",
+    "preview": "npm --prefix React run preview",
+    "lint": "npm --prefix React run lint",
+    "server": "npm --prefix API run dev",
+    "start": "npm --prefix API start"
+  }
+}

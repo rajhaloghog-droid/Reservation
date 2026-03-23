@@ -1,0 +1,14 @@
+node_modules
+React/node_modules
+API/node_modules
+front-end/dist
+mysql_data
+mysql/data
+mysql/backup
+.git
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
