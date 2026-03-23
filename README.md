@@ -7,6 +7,7 @@ This repository is organized by responsibility:
 - `front-end/`: frontend output/static artifacts (`dist`)
 - `API/database/`: SQL/schema/setup artifacts (`database.sql`, `database.json`, `MYSQL_SETUP.md`)
 - `mysql/` and `mysql_data/`: local MySQL-related files/data used by your current setup
+- `railway.json`: Railway deployment settings for Dockerfile builds and health checks
 
 ## Run
 
@@ -41,13 +42,13 @@ Because of that, GitHub can store the code, but GitHub Pages cannot run the back
 1. Push this folder to a GitHub repository.
 2. Create a Railway project from that GitHub repo.
 3. Add a MySQL database service in Railway.
-4. Deploy the repo using the included `Dockerfile`.
-5. Set these environment variables in Railway:
+4. Add these environment variables to the app service in Railway:
    - `JWT_SECRET`
    - `ADMIN_EMAIL`
    - `ADMIN_PASSWORD`
    - `LOCAL_NETWORK_ONLY=false`
-6. Either set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, or let the app read Railway-style MySQL variables (`MYSQLHOST`, `MYSQLPORT`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLDATABASE`).
+5. Either set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, or let the app read Railway-style MySQL variables (`MYSQLHOST`, `MYSQLPORT`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLDATABASE`).
+6. Deploy the repo. Railway will use the committed [`railway.json`](./railway.json) config and the included `Dockerfile`.
 
 The app already listens on `PORT`, and the backend serves the built frontend from `front-end/dist` in production.
 
