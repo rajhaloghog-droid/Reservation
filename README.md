@@ -45,6 +45,7 @@ Because of that, GitHub can store the code, but GitHub Pages cannot run the back
 4. During setup, enter values for:
    - `ADMIN_EMAIL`
    - `ADMIN_PASSWORD`
+   - `DB_PASSWORD`
    - `MYSQL_PASSWORD`
    - `MYSQL_ROOT_PASSWORD`
 5. Render will create:
@@ -58,7 +59,8 @@ The app already listens on `PORT`, and the backend serves the built frontend fro
 
 - The app service uses `LOCAL_NETWORK_ONLY=false` in the cloud.
 - `JWT_SECRET` is generated automatically by `render.yaml`.
-- The web service reads `DB_*` values, and the Blueprint maps those from the MySQL service.
+- The web service uses the private hostname `reservation-mysql` on port `3306`.
+- Set `DB_PASSWORD` to the same value you use for `MYSQL_PASSWORD`.
 - See [`.env.render.example`](./.env.render.example) for the variable layout used by the Render setup.
 
 ## Environment

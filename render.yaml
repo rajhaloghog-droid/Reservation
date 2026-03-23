@@ -22,38 +22,23 @@ services:
       - key: ADMIN_PASSWORD
         sync: false
       - key: DB_HOST
-        fromService:
-          type: pserv
-          name: reservation-mysql
-          property: host
+        value: reservation-mysql
       - key: DB_PORT
-        fromService:
-          type: pserv
-          name: reservation-mysql
-          property: port
+        value: 3306
       - key: DB_NAME
-        fromService:
-          type: pserv
-          name: reservation-mysql
-          envVarKey: MYSQL_DATABASE
+        value: reservation_system
       - key: DB_USER
-        fromService:
-          type: pserv
-          name: reservation-mysql
-          envVarKey: MYSQL_USER
+        value: reservation_app
       - key: DB_PASSWORD
-        fromService:
-          type: pserv
-          name: reservation-mysql
-          envVarKey: MYSQL_PASSWORD
+        sync: false
 
   - type: pserv
     name: reservation-mysql
-    runtime: image
+    runtime: docker
     plan: starter
     region: singapore
-    image:
-      url: docker.io/mysql:8.0
+    repo: https://github.com/render-examples/mysql.git
+    branch: master
     disk:
       name: mysql-data
       mountPath: /var/lib/mysql
